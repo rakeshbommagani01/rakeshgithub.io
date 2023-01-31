@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple</title>
+    <script>
+        console.log("Welcome to Temple!");
+let namecustom, gowthram, naksh, date, time, dob;
+function submit(){
+    namecustom=document.getElementById("name").value;
+    gowthram=document.getElementById("gothram").value;
+    naksh=document.getElementById("naksh").value;
+    date=document.getElementById("d").value;
+    time=document.getElementById("time").value;
+    dob=document.getElementById("date").value;
+    if(namecustom==="" || gowthram==="" || naksh==="" || date==="" || time==="" || dob===""){
+        alert("please fill the required regions");
+    }
+    else{
+        document.getElementById("container").style.display="none";
+        let str="";
+        str+=`<table><tr><td>Name</td><td>${namecustom}</td></tr>`;
+        str+=`<tr><td>Gothram</td><td>${gowthram}</td></tr>`;
+        str+=`<tr><td>Nakshatram</td><td>${naksh}</td></tr>`;
+        str+=`<tr><td>Date</td><td>${date}</td></tr>`;
+        str+=`<tr><td>Time</td><td>${time}</td></tr>`;
+        str+=`<tr><td>D.O.B</td><td>${dob}</td></tr></table>`;
+        str+=`<button type="reset" onclick="reset()" style="margin-top:20px;margin-right:10px;margin-left:150px">reset</button>`;
+        str+=`<button type="submit" onclick="printData()">print</button>`;
+        document.getElementById("table").innerHTML=str;
+        document.getElementById("table").style.display="block";
+    }
+}
+
+function reset(){
+    window.location.reload(true);
+}
+
+function printData(){
+    alert();
+    let str1="";
+    str1+=`<table><tr><td>Name</td><td>${namecustom}</td></tr>`;
+    str1+=`<tr><td>Gothram</td><td>${gowthram}</td></tr>`;
+    str1+=`<tr><td>Nakshatram</td><td>${naksh}</td></tr>`;
+    str1+=`<tr><td>Date</td><td>${date}</td></tr>`;
+    str1+=`<tr><td>Time</td><td>${time}</td></tr>`;
+    str1+=`<tr><td>D.O.B</td><td>${dob}</td></tr></table>`;
+    alert();
+    document.getElementById("table").innerHTML=str1;
+    window.print();
+}
+    </script>
+    <style>
+        table,td{
+            border:1px solid grey;
+        }
+        table{
+            height:400px;
+            width:400px;
+        }
+        tr{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <div id="container" style="border:2px solid grey;width:30%;height:500px;position:relative;margin-top: 20px;">
+            <h1 style="display: flex;justify-content:center;align-items: center;margin-top: 30px;margin-bottom: 70px;"><strong>Ayyappa Temple</strong></h1>
+            <div style="display: flex;flex-direction:column;margin-left:60px;">
+                <div><b>Name  : </b><input type="text" style="width:fit-content"  id="name" required></div><br>
+                <div><b>Gothram: </b><input type="text" style="width:fit-content" id="gothram" required></div><br>
+                <div><b>Nakshathram: </b><input type="text" style="width:fit-content" id="naksh" required></div><br>
+                <div><b>Date: </b><input type="date" name="date" style="width:fit-content" id="d" required></div><br>
+                <div><b>Time:</b><input type="time" name="time" style="width:fit-content" id="time" required></div><br>
+                <div><b> D.O.B: </b><input type="date" name="dob" style="width:fit-content" id="date" required></div><br>
+                <div style="display: flex;flex-direction: row;justify-content: center;align-items:center;margin-top: 20px;">
+                <input type="submit" onclick="submit()" value="save" style="margin-right:10px;position: absolute;left: 37%;">
+                <input type="submit" value="Cancel">
+               </div>
+            </div>
+    </div>
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <div id="table" style="width:30%;height:500px;position:relative;margin-top: 20px;display:none;font-size: medium;">
+        </div>
+    </div>
+</body>
+</html>
